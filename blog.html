@@ -75,45 +75,8 @@
     </section>
     <!-- ====== Banner End ====== -->
 
-    <!-- ====== Prototype Progression Carousel Start ====== -->
-    <section class="ud-progress-carousel">
-      <div class="container">
-        <div class="ud-section-title mx-auto text-center">
-          <span>Progression</span>
-          <h2>Prototype Through the Months</h2>
-        </div>
-        <div id="prototypeCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="assets/images/hardware/glasses-front.jpg" alt="Hardware assembly front view" />
-              <div class="carousel-caption">Raspberry Pi Zero 2W with camera module and haptic motor — front view</div>
-            </div>
-            <div class="carousel-item">
-              <img src="assets/images/hardware/glasses-angle.jpg" alt="Hardware assembly angle view" />
-              <div class="carousel-caption">Full wiring visible — power module, cam ribbon, haptic motor connections</div>
-            </div>
-            <div class="carousel-item">
-              <img src="assets/images/app/scanning-screen.png" alt="YOLO scanning screen" />
-              <div class="carousel-caption">YOLO11-seg crossing detection running live on the web app</div>
-            </div>
-            <div class="carousel-item">
-              <img src="assets/images/app/home-screen.png" alt="T.O.P.H home screen" />
-              <div class="carousel-caption">Polished home screen — large accessible "Tap to start" button</div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#prototypeCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#prototypeCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- ====== Prototype Progression Carousel End ====== -->
-
     <!-- ====== Journey Timeline Start ====== -->
-    <section class="ud-blog-grids">
+    <section class="ud-journey-timeline">
       <div class="container">
         <div class="ud-section-title mx-auto text-center">
           <span>Design Iterations</span>
@@ -123,149 +86,88 @@
             during testing — here's the engineering story behind T.O.P.H.
           </p>
         </div>
-        <div class="row">
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/hardware/glasses-front.jpg" alt="Smart spectacle form factor" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Form Factor</span>
-                <h3 class="ud-blog-title">Smart Cane → Smart Shoe → Smart Spectacle</h3>
-                <p class="ud-blog-desc">
-                  Smart canes were rejected — the market is saturated and users prefer
-                  lightweight traditional canes. Smart shoes failed on camera placement
-                  (below hip, obstructed view) and privacy concerns. The spectacle puts
-                  the camera at eye-level for unobstructed, privacy-safe AI detection.
-                </p>
-              </div>
+        <div class="ud-timeline">
+          <div class="ud-timeline-line"></div>
+
+          <div class="ud-timeline-item ud-timeline-left wow fadeInUp" data-wow-delay=".1s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">Form Factor</span>
+              <h5>Smart Cane → Smart Shoe → Smart Spectacle</h5>
+              <p>Smart canes were rejected — the market is saturated and users prefer lightweight traditional canes. Smart shoes failed on camera placement (below hip, obstructed view) and privacy concerns. The spectacle puts the camera at eye-level for unobstructed, privacy-safe AI detection.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/app/home-screen.png" alt="Web app home screen" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">App Platform</span>
-                <h3 class="ud-blog-title">Native Android → Browser Web App</h3>
-                <p class="ud-blog-desc">
-                  Every native code change required a full compile-sign-deploy cycle.
-                  With less than 2 months to build both hardware and software, the web app
-                  let us push and test instantly — WebSocket, DeviceOrientation, Web Speech
-                  all worked cross-device with no platform-specific code.
-                </p>
-              </div>
+          <div class="ud-timeline-item ud-timeline-right wow fadeInUp" data-wow-delay=".15s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">App Platform</span>
+              <h5>Native Android → Browser Web App</h5>
+              <p>Every native code change required a full compile-sign-deploy cycle. With less than 2 months to build both hardware and software, the web app let us push and test instantly — WebSocket, DeviceOrientation, and Web Speech all worked cross-device with no platform-specific code.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/app/settings-screen.jpg" alt="Audio and haptic settings" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Audio</span>
-                <h3 class="ud-blog-title">Dedicated Speaker → Phone Built-In Audio</h3>
-                <p class="ud-blog-desc">
-                  A separate audio module meant more hardware, another Bluetooth pairing
-                  step, and extra weight. We routed all feedback through Web Speech Synthesis
-                  on the user's own phone — zero additional pairing, zero extra hardware,
-                  controls they already know.
-                </p>
-              </div>
+          <div class="ud-timeline-item ud-timeline-left wow fadeInUp" data-wow-delay=".2s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">Audio</span>
+              <h5>Dedicated Speaker Module → Phone Built-In Audio</h5>
+              <p>A separate audio module meant more hardware, another Bluetooth pairing step, and extra weight on the glasses. We routed all feedback through Web Speech Synthesis on the user's own phone — zero additional pairing, zero extra hardware, controls they already know.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/app/scanning-screen.png" alt="AI scanning view" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">AI Processing</span>
-                <h3 class="ud-blog-title">On-Device AI → Cloud-Hosted on AWS EC2</h3>
-                <p class="ud-blog-desc">
-                  Real-time inference competed for the same battery and CPU the phone
-                  needed for camera streaming and speech. We split the workload: heavy
-                  AI inference on EC2, lightweight capture on the phone. When our t2.micro
-                  got OOM-killed, we resized to t3.small — one server change, zero client changes.
-                </p>
-              </div>
+          <div class="ud-timeline-item ud-timeline-right wow fadeInUp" data-wow-delay=".25s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">AI Processing</span>
+              <h5>On-Device AI → Cloud-Hosted on AWS EC2</h5>
+              <p>Real-time inference competed for the same battery and CPU the phone needed for camera streaming and speech. We split the workload: heavy AI on EC2, lightweight capture on the phone. When our t2.micro got OOM-killed, we resized to t3.small — one server change, zero client changes.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/hardware/glasses-angle.jpg" alt="Camera module on glasses" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Camera</span>
-                <h3 class="ud-blog-title">ESP32 → Raspberry Pi</h3>
-                <p class="ud-blog-desc">
-                  The ESP32 failed all three tests: images pixelated at 10m, motion caused
-                  total blur (no autofocus), and thermal throttling dropped video from 30fps
-                  to under 1fps within minutes. The Pi boosted AI detection confidence from
-                  ~70% to ~94%, at a +10% weight cost we accepted as mandatory.
-                </p>
-              </div>
+          <div class="ud-timeline-item ud-timeline-left wow fadeInUp" data-wow-delay=".1s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">Camera</span>
+              <h5>ESP32 → Raspberry Pi</h5>
+              <p>The ESP32 failed all three tests: images pixelated at 10m, motion caused total blur (no autofocus), and thermal throttling dropped video from 30fps to under 1fps within minutes. The Pi boosted AI detection confidence from ~70% to ~94%, at a +10% weight cost we accepted as mandatory.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/app/idle-screen.jpg" alt="Connection state" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Localisation</span>
-                <h3 class="ud-blog-title">Google Places API → Overpass / OpenStreetMap</h3>
-                <p class="ud-blog-desc">
-                  Google Places returned wrong locations because traffic_signals isn't a
-                  valid Places type — it's a business directory, not infrastructure data.
-                  Overpass API queries real OSM crossing tags, with three mirror endpoints
-                  and a camera-only YOLO fallback if no data is returned.
-                </p>
-              </div>
+          <div class="ud-timeline-item ud-timeline-right wow fadeInUp" data-wow-delay=".15s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">Localisation</span>
+              <h5>Google Places API → Overpass / OpenStreetMap</h5>
+              <p>Google Places returned wrong locations because traffic_signals isn't a valid Places type — it's a business directory, not infrastructure data. Overpass API queries real OSM crossing tags, with three mirror endpoints and a camera-only YOLO fallback if no data is returned.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/hardware/glasses-front.jpg" alt="Spectacle design iteration" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Hardware Design</span>
-                <h3 class="ud-blog-title">Spectacle V1 (Compact) → V2 (Expanded)</h3>
-                <p class="ud-blog-desc">
-                  V1 was sized for the ESP32's smaller footprint. After the mandatory
-                  Pi upgrade, V2 redesigned the chassis with expanded cavities for the
-                  larger board, proper thermal clearance, and passive airflow — accepting
-                  +5% size for a step-change in detection quality.
-                </p>
-              </div>
+          <div class="ud-timeline-item ud-timeline-left wow fadeInUp" data-wow-delay=".2s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">Hardware Design</span>
+              <h5>Spectacle V1 (Compact) → V2 (Expanded)</h5>
+              <p>V1 was sized for the ESP32's smaller footprint. After the mandatory Pi upgrade, V2 redesigned the chassis with expanded cavities for the larger board, proper thermal clearance, and passive airflow — accepting +5% size for a step-change in detection quality.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <img src="assets/images/app/scanning-screen.png" alt="Frame processing" />
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Processing</span>
-                <h3 class="ud-blog-title">60fps → 1 Frame per 0.15s (~7fps)</h3>
-                <p class="ud-blog-desc">
-                  Our CPU-only AWS instance took ~150ms per frame — at 60fps, a massive
-                  backlog crashed the system. We sample 1 frame per 0.15s, matching CPU
-                  capacity. At walking speed (1.4 m/s), this captures movement in ~21cm
-                  increments — enough for safe pedestrian detection.
-                </p>
-              </div>
+          <div class="ud-timeline-item ud-timeline-right wow fadeInUp" data-wow-delay=".25s">
+            <div class="ud-timeline-dot"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag">Processing</span>
+              <h5>60fps → 1 Frame per 0.15s (~7fps)</h5>
+              <p>Our CPU-only AWS instance took ~150ms per frame — at 60fps, a massive backlog crashed the system. We sample 1 frame per 0.15s, matching CPU capacity. At walking speed (1.4 m/s), this captures movement in ~21cm increments — enough for safe pedestrian detection.</p>
+            </div>
+          </div>
+
+          <div class="ud-timeline-item ud-timeline-end">
+            <div class="ud-timeline-dot ud-timeline-dot-final"></div>
+            <div class="ud-timeline-card">
+              <span class="ud-timeline-tag" style="color: #13c296;">Current</span>
+              <h5>Demo-Ready Prototype</h5>
+              <p>13-state FSM, gesture recognition, Web Speech Synthesis, dual-mode camera input, double-confirmation safety gates, and stall-detection crossing timer — field-tested and submitted for the James Dyson Award.</p>
             </div>
           </div>
 

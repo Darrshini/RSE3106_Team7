@@ -829,6 +829,144 @@ p {
   right: 16px;
 }
 
+/* ===== Journey Timeline ===== */
+.ud-journey-timeline {
+  padding: 80px 0;
+}
+
+.ud-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+.ud-timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary-color) 0%, #13c296 100%);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  .ud-timeline-line {
+    left: 20px;
+  }
+}
+
+.ud-timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 40px 50px;
+}
+
+.ud-timeline-left {
+  left: 0;
+  text-align: right;
+}
+
+.ud-timeline-right {
+  left: 50%;
+  text-align: left;
+}
+
+.ud-timeline-end {
+  left: 25%;
+  width: 50%;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .ud-timeline-item,
+  .ud-timeline-end {
+    width: 100%;
+    left: 0;
+    padding-left: 50px;
+    padding-right: 16px;
+    text-align: left;
+  }
+}
+
+.ud-timeline-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--primary-color);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  top: 6px;
+  box-shadow: 0 0 0 3px var(--primary-color);
+  z-index: 2;
+}
+
+.ud-timeline-left .ud-timeline-dot {
+  right: -8px;
+}
+
+.ud-timeline-right .ud-timeline-dot {
+  left: -8px;
+}
+
+.ud-timeline-end .ud-timeline-dot {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ud-timeline-dot-final {
+  background: #13c296;
+  box-shadow: 0 0 0 3px #13c296;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 767px) {
+  .ud-timeline-dot,
+  .ud-timeline-left .ud-timeline-dot,
+  .ud-timeline-right .ud-timeline-dot,
+  .ud-timeline-end .ud-timeline-dot {
+    left: 12px;
+    right: auto;
+    transform: none;
+  }
+}
+
+.ud-timeline-card {
+  background: var(--white);
+  border: 1px solid #e4ecfe;
+  border-radius: 10px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 15px rgba(22, 35, 63, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.ud-timeline-card:hover {
+  box-shadow: 0 8px 25px rgba(22, 35, 63, 0.12);
+}
+
+.ud-timeline-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ud-timeline-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 6px 0 8px;
+}
+
+.ud-timeline-card p {
+  font-size: 13px;
+  color: var(--body-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* ===== Demo video ===== */
 .ud-demo {
   padding: 70px 0;
