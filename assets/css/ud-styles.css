@@ -982,10 +982,13 @@ p {
 
 .ud-app-card img {
   width: 100%;
+  max-width: 280px;
   height: auto;
   background: #111;
   padding: 10px;
   border-radius: 12px;
+  display: block;
+  margin: 0 auto;
 }
 
 .ud-app-card h5 {
