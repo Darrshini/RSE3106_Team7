@@ -974,13 +974,6 @@ p {
 }
 
 /* ===== App screenshot cards ===== */
-.ud-app-card img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  object-position: top;
-  background: #111;
-}
 
 .ud-app-card:hover {
   transform: translateY(-5px);
@@ -990,10 +983,9 @@ p {
 .ud-app-card img {
   width: 100%;
   height: auto;
-  object-fit: contain;
   background: #111;
   padding: 10px;
-  max-height: 500px;
+  border-radius: 12px 12px 0 0;
 }
 
 .ud-app-card h5 {
