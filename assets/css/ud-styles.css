@@ -974,14 +974,12 @@ p {
 }
 
 /* ===== App screenshot cards ===== */
-.ud-app-card {
-  background: var(--white);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(22, 35, 63, 0.08);
-  text-align: center;
-  height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.ud-app-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: top;
+  background: #111;
 }
 
 .ud-app-card:hover {
