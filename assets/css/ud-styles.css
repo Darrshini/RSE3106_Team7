@@ -829,6 +829,73 @@ p {
   right: 16px;
 }
 
+/* ===== Demo video ===== */
+.ud-demo {
+  padding: 70px 0;
+  background: #eef3fe;
+}
+
+/* ===== App screenshot cards ===== */
+.ud-app-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(22, 35, 63, 0.08);
+  text-align: center;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ud-app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(22, 35, 63, 0.15);
+}
+
+.ud-app-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: top;
+  background: #111;
+}
+
+.ud-app-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 16px 16px 6px;
+}
+
+.ud-app-card p {
+  font-size: 13px;
+  color: var(--body-color);
+  margin: 0 16px 18px;
+  line-height: 1.5;
+}
+
+.ud-demo-video {
+  max-width: 800px;
+  margin: 30px auto 0;
+  position: relative;
+  width: 100%;
+  padding-bottom: 45%; /* 16:9 within max-width */
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 15px 40px rgba(22, 35, 63, 0.15);
+}
+
+.ud-demo-video iframe,
+.ud-demo-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
 /* ===== Features CSS ===== */
 .ud-features {
   padding-top: 120px;
