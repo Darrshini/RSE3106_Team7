@@ -201,12 +201,13 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title">
-              <span>The App</span>
-              <h2>What the User Sees</h2>
+              <span>Designed for Accessibility</span>
+              <h2>Built With the User in Mind</h2>
               <p>
-                T.O.P.H's phone-based web app guides the user through each step
-                of the crossing process with large, accessible controls and
-                real-time feedback.
+                Every interaction in T.O.P.H is designed so the user never needs
+                to look at a screen. A tap anywhere is enough — the state machine
+                decides when to register input and when to ignore it, preventing
+                false triggers. Audio and haptic feedback handle the rest.
               </p>
             </div>
           </div>
@@ -215,30 +216,41 @@
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="ud-app-card wow fadeInUp" data-wow-delay=".1s">
               <img src="assets/images/app/home-screen.png" alt="T.O.P.H home screen" />
-              <h5>Home</h5>
-              <p>Large "Tap to start" button designed for accessibility — no small UI targets.</p>
+              <h5>Tap Anywhere to Start</h5>
+              <p>One full-screen tap zone — no need to find a specific button. The system confirms activation with spoken audio feedback.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="ud-app-card wow fadeInUp" data-wow-delay=".15s">
               <img src="assets/images/app/idle-screen.jpg" alt="Waiting for glasses connection" />
-              <h5>Connecting</h5>
-              <p>Visual status indicator shows glasses connection state before scanning begins.</p>
+              <h5>State-Managed Input</h5>
+              <p>The 13-state FSM controls when taps are registered and when they're ignored, so accidental touches during a crossing never trigger false commands.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="ud-app-card wow fadeInUp" data-wow-delay=".2s">
               <img src="assets/images/app/scanning-screen.png" alt="Live camera scanning for crossing" />
-              <h5>Scanning</h5>
-              <p>Live camera feed from the glasses with YOLO11 detection — "Looking for a crossing."</p>
+              <h5>Audio-First Guidance</h5>
+              <p>All crossing status, directions, and safety confirmations are spoken aloud via Web Speech Synthesis — the screen is for sighted caregivers, not the user.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="ud-app-card wow fadeInUp" data-wow-delay=".25s">
               <img src="assets/images/app/settings-screen.jpg" alt="Settings panel" />
-              <h5>Settings</h5>
-              <p>Haptic intensity, audio volume, speech rate, and high contrast mode — all adjustable.</p>
+              <h5>Adjustable Feedback</h5>
+              <p>Haptic intensity, speech rate, and audio volume are tuneable — a caregiver can configure once, and the user operates entirely by touch and sound.</p>
             </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-8 mx-auto text-center">
+            <p class="text-muted" style="font-size: 14px; line-height: 1.7;">
+              <strong>Future direction:</strong> Our current web app still requires
+              a browser launch, which isn't independently accessible. We see T.O.P.H
+              as a proof of concept for the core navigation intelligence. The next step
+              is a native app activated entirely by voice command — no screen navigation
+              or typing required to start a session.
+            </p>
           </div>
         </div>
       </div>
