@@ -742,12 +742,12 @@ p {
 /* ===== Hardware gallery ===== */
 .ud-hardware-gallery {
   padding: 80px 0;
-  background: #eef3fe;
+  background: linear-gradient(180deg, #eef3fe 0%, #dce6fa 100%);
 }
 
 .ud-hardware-gallery img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 16px;
   cursor: zoom-in;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -846,6 +846,7 @@ p {
 /* ===== Journey Timeline ===== */
 .ud-journey-timeline {
   padding: 80px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fe 100%);
 }
 
 .ud-timeline {
@@ -949,14 +950,15 @@ p {
 .ud-timeline-card {
   background: var(--white);
   border: 1px solid #e4ecfe;
-  border-radius: 10px;
+  border-radius: 16px;
   padding: 22px 24px;
   box-shadow: 0 4px 15px rgba(22, 35, 63, 0.06);
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .ud-timeline-card:hover {
-  box-shadow: 0 8px 25px rgba(22, 35, 63, 0.12);
+  box-shadow: 0 8px 25px rgba(47, 111, 237, 0.15);
+  transform: translateY(-2px);
 }
 
 .ud-timeline-tag {
@@ -984,7 +986,7 @@ p {
 /* ===== Demo video ===== */
 .ud-demo {
   padding: 70px 0;
-  background: #eef3fe;
+  background: linear-gradient(180deg, #eef3fe 0%, #dce6fa 100%);
 }
 
 /* ===== App screenshot cards ===== */
@@ -1031,9 +1033,9 @@ p {
   margin: 30px auto 0;
   position: relative;
   width: 100%;
-  padding-bottom: 45%; /* 16:9 within max-width */
+  padding-bottom: 45%;
   height: 0;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0px 15px 40px rgba(22, 35, 63, 0.15);
 }
@@ -1053,6 +1055,7 @@ p {
 .ud-features {
   padding-top: 120px;
   padding-bottom: 90px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fe 100%);
 }
 
 @media (max-width: 767px) {
@@ -1116,8 +1119,8 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 14px;
-  background: var(--primary-color);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2F6FED 0%, #1a3a7a 100%);
   font-size: 32px;
   color: var(--white);
   position: relative;
@@ -1174,7 +1177,7 @@ p {
 
 /* ===== About CSS ===== */
 .ud-about {
-  background: #eef3fe;
+  background: linear-gradient(180deg, #eef3fe 0%, #dce6fa 100%);
   padding: 120px 0;
 }
 
@@ -1187,12 +1190,18 @@ p {
 .ud-about-wrapper {
   background: var(--white);
   border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(22, 35, 63, 0.1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -1255,6 +1264,13 @@ p {
   background: #2748b4;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ud-about-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -1388,7 +1404,7 @@ p {
 .ud-faq {
   padding-top: 120px;
   padding-bottom: 90px;
-  background: #eef3fe;
+  background: linear-gradient(180deg, #f4f7fe 0%, #eef3fe 100%);
   position: relative;
   z-index: 1;
 }
@@ -1602,6 +1618,7 @@ p {
 .ud-team {
   padding-top: 120px;
   padding-bottom: 80px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fe 100%);
 }
 
 @media (max-width: 767px) {
@@ -2054,11 +2071,7 @@ p {
 .ud-page-banner {
   padding-top: 130px;
   padding-bottom: 80px;
-  background: var(--primary-color);
-  background-image: url("../images/banner/banner-bg.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(135deg, #16233f 0%, #1a3a7a 50%, #2F6FED 100%);
 }
 
 .ud-banner-content {
