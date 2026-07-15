@@ -75,325 +75,261 @@
     </section>
     <!-- ====== Banner End ====== -->
 
-    <!-- ====== AI Overview Start ====== -->
-    <section class="ud-ai-section">
+    <!-- ====== AI Content ====== -->
+    <section class="ud-ai-page">
       <div class="container">
-        <div class="ud-section-title mx-auto text-center">
-          <span>AI &amp; Vision</span>
-          <h2>How T.O.P.H Sees the Crossing</h2>
-          <p>
-            A single YOLO11 segmentation model finds the crossing's dotted lines
-            and the pedestrian light. Classical computer vision then reads the
-            light's colour and works out which way to walk — turning a camera
-            into three spoken answers: <strong>cross now</strong>,
-            <strong>walk this way</strong>, and
-            <strong>you've reached the other side</strong>.
-          </p>
-        </div>
+        <div class="col-lg-10 mx-auto">
 
-        <!-- Stats Row -->
-        <div class="row g-4 justify-content-center mb-5">
-          <div class="col-lg-3 col-md-6">
-            <div class="ud-ai-stat-card">
-              <h3>0.89</h3>
-              <span>mAP@50</span>
-              <p>Crossing-mask accuracy on clean frames</p>
-            </div>
+          <!-- Intro -->
+          <div class="ud-ai-intro text-center">
+            <span class="ud-ai-label">AI &amp; Vision</span>
+            <h2>How T.O.P.H Sees the Crossing</h2>
+            <p>
+              A single YOLO11 segmentation model finds the crossing's dotted lines
+              and the pedestrian light. Classical computer vision then reads the
+              light's colour and works out which way to walk — turning a camera
+              into three spoken answers: <strong>cross now</strong>,
+              <strong>walk this way</strong>, and
+              <strong>you've reached the other side</strong>.
+            </p>
           </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="ud-ai-stat-card">
-              <h3>0.81</h3>
-              <span>mAP@50</span>
-              <p>Mask accuracy on Pi-degraded frames</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="ud-ai-stat-card">
-              <h3>2</h3>
-              <span>Classes</span>
-              <p>Dotted line + pedestrian light</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="ud-ai-stat-card">
-              <h3>3</h3>
-              <span>CV Subsystems</span>
-              <p>Colour, direction, and arrival detection</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== AI Overview End ====== -->
 
-    <!-- ====== Model Details Start ====== -->
-    <section class="ud-ai-section ud-ai-section-alt">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>01</span>
-              <h2>The Segmentation Model</h2>
-            </div>
-
-            <div class="ud-ai-detail-card">
-              <p>
-                T.O.P.H runs on one vision model: a <strong>YOLO11 instance-segmentation</strong>
-                network that outlines the crossing's dashed markings and locates
-                the pedestrian light. Everything else — the light's colour, the
-                walking direction, the sense of having arrived — is classical
-                computer vision layered on top of the model's detections.
-              </p>
-              <p>
-                It was transfer-learned from COCO-pretrained <strong>YOLO11s-seg</strong>
-                (the small variant, chosen for real-time inference on modest
-                hardware) and exported to <strong>ONNX</strong> for deployment.
-              </p>
-            </div>
-
-            <div class="ud-ai-table-wrapper">
-              <table class="ud-ai-table">
-                <tbody>
-                  <tr>
-                    <td class="ud-ai-table-label">Collection</td>
-                    <td>Team-captured iPhone photos of Singapore crossings; two Roboflow projects merged by class name — 633 images total.</td>
-                  </tr>
-                  <tr>
-                    <td class="ud-ai-table-label">Labelling</td>
-                    <td>Polygon masks (instance segmentation) for dotted line — the crossing-corridor markings — and pedestrian light.</td>
-                  </tr>
-                  <tr>
-                    <td class="ud-ai-table-label">Pre-processing</td>
-                    <td>Merged to a shared taxonomy in YOLO-seg format; letterboxed to 640px; heavy domain-gap augmentation to match the deployment camera — motion blur, softening, desaturation, sensor noise, JPEG compression — because training shots were crisp iPhone but the wearable uses a Raspberry Pi video feed.</td>
-                  </tr>
-                  <tr>
-                    <td class="ud-ai-table-label">Backbone</td>
-                    <td>YOLO11s-seg (small), fine-tuned from COCO weights. Outputs bounding box + 32 mask coefficients + 160x160 prototypes.</td>
-                  </tr>
-                  <tr>
-                    <td class="ud-ai-table-label">Training</td>
-                    <td>Single-GPU transfer learning; letterbox 640, patience 25 early-stopping, recipe tuned for the augmented set; exported to ONNX (opset 12).</td>
-                  </tr>
-                  <tr>
-                    <td class="ud-ai-table-label">Result</td>
-                    <td>Box mAP@50 0.86, mask mAP@50 0.89 on clean frames — 0.84 / 0.81 on Pi-degraded frames.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== Model Details End ====== -->
-
-    <!-- ====== Old Model Start ====== -->
-    <section class="ud-ai-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>02</span>
-              <h2>The Colour Model That Didn't Work</h2>
-            </div>
-
-            <div class="ud-ai-detail-card">
-              <p>
-                The first attempt was a plain <strong>colour detector</strong> —
-                a YOLO11 model trained to spot the light as red, green, or
-                traffic-light. It answered only one question (what colour?), and
-                answered it unreliably: the light-housing class scored just
-                <strong>AP 0.44</strong>, and colour classification struggled in
-                night and low-resolution frames.
-              </p>
-              <p>
-                Two realisations drove the change. First, a blind pedestrian
-                needs <strong>geometry</strong> the colour model never produced —
-                which way to walk, and when the far kerb is reached. Second,
-                colour is read more reliably by <strong>classical HSV</strong> on
-                a detected light box than by a learned 3-class detector. So the
-                colour model was dropped and replaced by the segmentation model,
-                which supplies the crossing geometry while classical CV handles
-                the colour.
-              </p>
-            </div>
-
-            <!-- Old model accuracy breakdown -->
-            <div class="ud-ai-detail-card">
-              <h5 style="margin-bottom: 16px;">Per-class accuracy (AP@50) — why it was replaced</h5>
-              <div class="row g-3">
-                <div class="col-md-4">
-                  <div class="ud-ai-stat-card">
-                    <h3 style="color: #13c296;">0.88</h3>
-                    <span>Green</span>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="ud-ai-stat-card">
-                    <h3 style="color: #f4a261;">0.77</h3>
-                    <span>Red</span>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="ud-ai-stat-card">
-                    <h3 style="color: #e76f51;">0.44</h3>
-                    <span>Traffic-light housing</span>
-                    <p>The weak point that triggered the switch</p>
-                  </div>
-                </div>
+          <!-- Stats Row -->
+          <div class="row g-3 ud-ai-stats-row">
+            <div class="col-6 col-md-3">
+              <div class="ud-ai-stat">
+                <h3>0.89</h3>
+                <span>mAP@50</span>
+                <p>Crossing-mask on clean frames</p>
               </div>
-              <p style="margin-top: 16px; font-size: 14px; color: var(--body-color);">
-                Overall mAP@50: 0.70. Single-source labels for the housing class capped its recall — the trigger for moving to segmentation + HSV.
-              </p>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="ud-ai-stat">
+                <h3>0.81</h3>
+                <span>mAP@50</span>
+                <p>Mask on Pi-degraded frames</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="ud-ai-stat">
+                <h3>2</h3>
+                <span>Classes</span>
+                <p>Dotted line + pedestrian light</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="ud-ai-stat">
+                <h3>3</h3>
+                <span>CV Subsystems</span>
+                <p>Colour, direction, arrival</p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== Old Model End ====== -->
 
-    <!-- ====== CV Guidance Start ====== -->
-    <section class="ud-ai-section ud-ai-section-alt">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>03</span>
-              <h2>The CV That Does the Guiding</h2>
+          <!-- Section 01 -->
+          <div class="ud-ai-block">
+            <div class="ud-ai-block-header">
+              <span class="ud-ai-block-num">01</span>
+              <h3>The Segmentation Model</h3>
             </div>
-            <p style="margin-bottom: 40px;">
+            <p>
+              T.O.P.H runs on one vision model: a <strong>YOLO11 instance-segmentation</strong>
+              network that outlines the crossing's dashed markings and locates
+              the pedestrian light. Everything else — the light's colour, the
+              walking direction, the sense of having arrived — is classical
+              computer vision layered on top of the model's detections.
+            </p>
+            <p>
+              It was transfer-learned from COCO-pretrained <strong>YOLO11s-seg</strong>
+              (the small variant, chosen for real-time inference on modest
+              hardware) and exported to <strong>ONNX</strong> for deployment.
+            </p>
+
+            <table class="ud-ai-spec-table">
+              <tbody>
+                <tr>
+                  <td class="ud-ai-spec-label">Collection</td>
+                  <td>Team-captured iPhone photos of Singapore crossings; two Roboflow projects merged by class name — 633 images total.</td>
+                </tr>
+                <tr>
+                  <td class="ud-ai-spec-label">Labelling</td>
+                  <td>Polygon masks (instance segmentation) for dotted line — the crossing-corridor markings — and pedestrian light.</td>
+                </tr>
+                <tr>
+                  <td class="ud-ai-spec-label">Pre-processing</td>
+                  <td>Merged to a shared taxonomy in YOLO-seg format; letterboxed to 640px; heavy domain-gap augmentation — motion blur, softening, desaturation, sensor noise, JPEG compression — because training shots were crisp iPhone but the wearable uses a Raspberry Pi video feed.</td>
+                </tr>
+                <tr>
+                  <td class="ud-ai-spec-label">Backbone</td>
+                  <td>YOLO11s-seg (small), fine-tuned from COCO weights. Outputs bounding box + 32 mask coefficients + 160x160 prototypes.</td>
+                </tr>
+                <tr>
+                  <td class="ud-ai-spec-label">Training</td>
+                  <td>Single-GPU transfer learning; letterbox 640, patience 25 early-stopping; exported to ONNX (opset 12).</td>
+                </tr>
+                <tr>
+                  <td class="ud-ai-spec-label">Result</td>
+                  <td>Box mAP@50 <strong>0.86</strong>, mask mAP@50 <strong>0.89</strong> on clean frames — <strong>0.84</strong> / <strong>0.81</strong> on Pi-degraded frames.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 02 -->
+          <div class="ud-ai-block">
+            <div class="ud-ai-block-header">
+              <span class="ud-ai-block-num">02</span>
+              <h3>The Colour Model That Didn't Work</h3>
+            </div>
+            <p>
+              The first attempt was a plain <strong>colour detector</strong> —
+              a YOLO11 model trained to spot the light as red, green, or
+              traffic-light. It answered only one question (what colour?), and
+              answered it unreliably: the light-housing class scored just
+              <strong>AP 0.44</strong>, and colour classification struggled in
+              night and low-resolution frames.
+            </p>
+            <p>
+              Two realisations drove the change. First, a blind pedestrian
+              needs <strong>geometry</strong> the colour model never produced —
+              which way to walk, and when the far kerb is reached. Second,
+              colour is read more reliably by <strong>classical HSV</strong> on
+              a detected light box than by a learned 3-class detector. So the
+              colour model was dropped and replaced by the segmentation model.
+            </p>
+
+            <div class="ud-ai-compare-row">
+              <div class="ud-ai-compare-item">
+                <h4 style="color: #13c296;">0.88</h4>
+                <span>Green</span>
+              </div>
+              <div class="ud-ai-compare-item">
+                <h4 style="color: #f4a261;">0.77</h4>
+                <span>Red</span>
+              </div>
+              <div class="ud-ai-compare-item ud-ai-compare-weak">
+                <h4 style="color: #e76f51;">0.44</h4>
+                <span>Traffic-light housing</span>
+              </div>
+            </div>
+            <p class="ud-ai-footnote">
+              Overall mAP@50: <strong>0.70</strong>. The housing class's low recall triggered the switch to segmentation + HSV.
+            </p>
+          </div>
+
+          <!-- Section 03 -->
+          <div class="ud-ai-block">
+            <div class="ud-ai-block-header">
+              <span class="ud-ai-block-num">03</span>
+              <h3>The CV That Does the Guiding</h3>
+            </div>
+            <p style="margin-bottom: 28px;">
               The model finds <em>what</em> and <em>where</em>; these three
               routines turn detections into spoken guidance.
             </p>
 
             <div class="row g-4">
-              <div class="col-lg-4">
-                <div class="ud-ai-guide-card">
-                  <span class="ud-ai-guide-tag">Colour</span>
+              <div class="col-md-4">
+                <div class="ud-ai-guide">
+                  <span class="ud-ai-guide-badge">Colour</span>
                   <h5>Reading the Light</h5>
                   <p>
                     Classical HSV on the detected light box counts lit pixels.
                     Green-present and red-present are reported independently,
                     making the blink readable: green only = cross; green + red =
-                    clearance (wait); red only is held as still-green until it
-                    persists 2+ seconds. A timer bridges the 500ms on/off blink
-                    so it never flickers to red.
+                    clearance (wait); red only held as still-green until it
+                    persists 2+ seconds.
                   </p>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="ud-ai-guide-card">
-                  <span class="ud-ai-guide-tag">Direction</span>
-                  <h5>The Vanishing-Point Vector</h5>
+              <div class="col-md-4">
+                <div class="ud-ai-guide">
+                  <span class="ud-ai-guide-badge">Direction</span>
+                  <h5>Vanishing-Point Vector</h5>
                   <p>
-                    Heading comes from the segmentation masks, not the light.
                     PCA finds each dashed line's dominant axis; the two boundary
-                    lines converge in perspective at a vanishing point — that's
-                    where the crossing leads. The spoken direction runs from the
-                    pedestrian's feet toward the vanishing point: the corridor
-                    centreline to the far kerb.
+                    lines converge in perspective at a vanishing point — where
+                    the crossing leads. The spoken direction runs from the
+                    pedestrian's feet toward the vanishing point.
                   </p>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="ud-ai-guide-card">
-                  <span class="ud-ai-guide-tag">Arrival</span>
+              <div class="col-md-4">
+                <div class="ud-ai-guide">
+                  <span class="ud-ai-guide-badge">Arrival</span>
                   <h5>Knowing You've Crossed</h5>
                   <p>
-                    Detected by dashes-run-out + light-proximity: when the
-                    dotted lines are no longer segmented ahead for several
-                    consecutive frames and the pedestrian light has grown large
-                    or dropped out of view, the pedestrian has crossed. A
-                    hardware IMU/GPS fail-safe is planned for future iterations.
+                    When the dotted lines are no longer segmented ahead for
+                    several consecutive frames and the pedestrian light has grown
+                    large or dropped out of view, the pedestrian has crossed.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== CV Guidance End ====== -->
 
-    <!-- ====== Evaluation Start ====== -->
-    <section class="ud-ai-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>04</span>
-              <h2>Evaluation</h2>
+          <!-- Section 04 -->
+          <div class="ud-ai-block">
+            <div class="ud-ai-block-header">
+              <span class="ud-ai-block-num">04</span>
+              <h3>Evaluation</h3>
             </div>
 
             <div class="row g-4">
-              <div class="col-lg-6">
-                <div class="ud-ai-detail-card">
-                  <h5 style="margin-bottom: 16px;">Colour Detector vs. Shipped Segmenter (mAP@50)</h5>
-                  <div class="row g-3">
-                    <div class="col-4">
-                      <div class="ud-ai-stat-card">
-                        <h3 style="color: var(--body-color);">0.70</h3>
-                        <span>Colour model</span>
-                        <p>Replaced</p>
-                      </div>
+              <div class="col-md-6">
+                <div class="ud-ai-eval-card">
+                  <h5>Colour Detector vs. Shipped Segmenter</h5>
+                  <p class="ud-ai-eval-subtitle">mAP@50 comparison</p>
+                  <div class="ud-ai-eval-row">
+                    <div class="ud-ai-eval-item">
+                      <h4 style="color: var(--body-color);">0.70</h4>
+                      <span>Colour model<br>(replaced)</span>
                     </div>
-                    <div class="col-4">
-                      <div class="ud-ai-stat-card">
-                        <h3>0.86</h3>
-                        <span>Segmenter</span>
-                        <p>Box mAP</p>
-                      </div>
+                    <div class="ud-ai-eval-item">
+                      <h4>0.86</h4>
+                      <span>Segmenter<br>box mAP</span>
                     </div>
-                    <div class="col-4">
-                      <div class="ud-ai-stat-card">
-                        <h3>0.89</h3>
-                        <span>Segmenter</span>
-                        <p>Mask mAP</p>
-                      </div>
+                    <div class="ud-ai-eval-item">
+                      <h4>0.89</h4>
+                      <span>Segmenter<br>mask mAP</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6">
-                <div class="ud-ai-detail-card">
-                  <h5 style="margin-bottom: 16px;">Robustness — Clean vs. Pi-Degraded</h5>
-                  <div class="row g-3">
-                    <div class="col-3">
-                      <div class="ud-ai-stat-card">
-                        <h3>0.86</h3>
-                        <span>Box clean</span>
-                      </div>
+              <div class="col-md-6">
+                <div class="ud-ai-eval-card">
+                  <h5>Robustness</h5>
+                  <p class="ud-ai-eval-subtitle">Clean iPhone vs. Pi-degraded frames</p>
+                  <div class="ud-ai-eval-row">
+                    <div class="ud-ai-eval-item">
+                      <h4>0.86</h4>
+                      <span>Box<br>clean</span>
                     </div>
-                    <div class="col-3">
-                      <div class="ud-ai-stat-card">
-                        <h3>0.84</h3>
-                        <span>Box Pi</span>
-                      </div>
+                    <div class="ud-ai-eval-item">
+                      <h4>0.84</h4>
+                      <span>Box<br>Pi</span>
                     </div>
-                    <div class="col-3">
-                      <div class="ud-ai-stat-card">
-                        <h3>0.89</h3>
-                        <span>Mask clean</span>
-                      </div>
+                    <div class="ud-ai-eval-item">
+                      <h4>0.89</h4>
+                      <span>Mask<br>clean</span>
                     </div>
-                    <div class="col-3">
-                      <div class="ud-ai-stat-card">
-                        <h3>0.81</h3>
-                        <span>Mask Pi</span>
-                      </div>
+                    <div class="ud-ai-eval-item">
+                      <h4>0.81</h4>
+                      <span>Mask<br>Pi</span>
                     </div>
                   </div>
-                  <p style="margin-top: 12px; font-size: 14px; color: var(--body-color);">
-                    Only a ~2-8 point drop under motion blur, noise, and compression — the augmentation did its job.
+                  <p class="ud-ai-footnote" style="margin-top: 12px;">
+                    Only a ~2-8 point drop — the augmentation prepared the model for the wearable's camera.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-    <!-- ====== Evaluation End ====== -->
+    <!-- ====== AI Content End ====== -->
 
     <!-- ====== Footer Start ====== -->
     <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
