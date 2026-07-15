@@ -1212,7 +1212,8 @@ p {
 
 .ud-about-content-wrapper {
   padding: 50px 50px 50px 70px;
-  flex: 1;
+  flex: 1 1 55%;
+  min-width: 0;
 }
 
 @media (max-width: 767px) {
@@ -1272,7 +1273,7 @@ p {
   align-items: center;
   justify-content: center;
   padding: 30px;
-  flex: 1;
+  flex: 1 1 45%;
   min-width: 0;
 }
 
@@ -1281,6 +1282,7 @@ p {
   width: 100%;
   max-width: 100%;
   border-radius: 12px;
+  object-fit: cover;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
