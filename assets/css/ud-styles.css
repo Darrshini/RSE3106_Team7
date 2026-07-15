@@ -676,25 +676,28 @@ p {
 
 /* ===== Explore cards ===== */
 .ud-explore {
-  padding: 60px 0;
-  background: linear-gradient(180deg, #1a3a7a 0%, #eef3fe 100%);
+  padding: 80px 0;
+  background: linear-gradient(180deg, #16233f 0%, #1a3a7a 40%, #3b6dd9 100%);
 }
 
 .ud-explore-card {
   display: block;
   height: 100%;
   padding: 30px;
-  border-radius: 10px;
-  border: none;
-  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(22, 35, 63, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
 .ud-explore-card:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0px 10px 30px rgba(47, 111, 237, 0.1);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(47, 111, 237, 0.35);
   transform: translateY(-4px);
 }
 
@@ -715,7 +718,7 @@ p {
 .ud-explore-card h5 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--heading-color);
+  color: #fff;
   margin-bottom: 8px;
   display: flex;
   align-items: center;
@@ -724,12 +727,12 @@ p {
 
 .ud-explore-card h5 i {
   font-size: 16px;
-  color: var(--primary-color);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .ud-explore-card p {
   font-size: 14px;
-  color: var(--body-color);
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
 
