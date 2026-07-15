@@ -502,8 +502,10 @@ p {
 
 /* ===== Hero CSS ===== */
 .ud-hero {
-  background: linear-gradient(rgba(47, 111, 237, 0.85), rgba(22, 35, 63, 0.9)), url('../images/hardware/glasses-front.png') center/cover no-repeat;
+  background: linear-gradient(rgba(47, 111, 237, 0.85), rgba(22, 35, 63, 1)), url('../images/hardware/glasses-front.png') center/cover no-repeat;
   padding-top: 180px;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -521,7 +523,7 @@ p {
 .ud-hero-content {
   max-width: 780px;
   margin: auto;
-  margin-bottom: 30px;
+  padding-bottom: 60px;
 }
 
 .ud-hero-content .ud-hero-title {
@@ -678,6 +680,7 @@ p {
 .ud-explore {
   padding: 80px 0;
   background: linear-gradient(180deg, #16233f 0%, #1a3a7a 40%, #3b6dd9 100%);
+  margin-top: -1px;
 }
 
 .ud-explore-card {
@@ -1697,6 +1700,7 @@ p {
 .ud-contact {
   padding: 120px 0px;
   position: relative;
+  background: linear-gradient(180deg, #f8faff 0%, #eef3fe 50%, #dce6fa 100%);
 }
 
 @media (max-width: 767px) {
@@ -1706,54 +1710,45 @@ p {
 }
 
 .ud-contact::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 50%;
-  background: #eef3fe;
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .ud-contact::after {
-    height: 45%;
-  }
+  display: none;
 }
 
 .ud-contact-title {
-  margin-bottom: 150px;
+  margin-bottom: 60px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .ud-contact-title {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 }
 
 .ud-contact-title span {
-  color: var(--heading-color);
+  color: var(--primary-color);
   font-weight: 600;
-  font-size: 15px;
-  margin-bottom: 20px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
 }
 
 .ud-contact-title h2 {
-  font-weight: 600;
-  font-size: 35px;
-  line-height: 41px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  color: var(--heading-color);
+}
+
+.ud-contact-desc {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--body-color);
+  margin-top: 16px;
 }
 
 .ud-contact-info-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -1763,37 +1758,53 @@ p {
 }
 
 .ud-contact-info-wrapper .ud-single-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   max-width: 100%;
-  width: 330px;
-  margin-bottom: 30px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(22, 35, 63, 0.08);
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 220px;
+}
+
+.ud-contact-info-wrapper .ud-single-info:hover {
+  box-shadow: 0 8px 30px rgba(47, 111, 237, 0.15);
+  transform: translateY(-2px);
 }
 
 .ud-contact-info-wrapper .ud-info-icon {
-  font-size: 32px;
-  color: var(--primary-color);
-  margin-right: 24px;
+  font-size: 28px;
+  color: var(--white);
+  background: var(--primary-color);
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-right: 20px;
 }
 
 .ud-contact-info-wrapper .ud-info-meta h5 {
   font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 16px;
+  margin-bottom: 6px;
 }
 
 .ud-contact-info-wrapper .ud-info-meta p {
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .ud-contact-form-wrapper {
-  -webkit-box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(22, 35, 63, 0.1);
+  border-radius: 16px;
   background: var(--white);
-  padding: 60px;
+  padding: 50px;
+  border: 1px solid rgba(47, 111, 237, 0.08);
 }
 
 @media (max-width: 767px) {
@@ -1810,41 +1821,57 @@ p {
 
 .ud-contact-form-wrapper .ud-contact-form-title {
   font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
+  font-weight: 700;
+  font-size: 24px;
   margin-bottom: 30px;
+  color: var(--heading-color);
 }
 
 @media (max-width: 767px) {
   .ud-contact-form-wrapper .ud-contact-form-title {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
 .ud-contact-form-wrapper .ud-form-group {
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 .ud-contact-form-wrapper .ud-form-group label {
   display: block;
-  font-weight: normal;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--heading-color);
+  margin-bottom: 6px;
 }
 
 .ud-contact-form-wrapper .ud-form-group input,
 .ud-contact-form-wrapper .ud-form-group textarea {
   display: block;
   width: 100%;
-  padding: 15px 0;
-  border: none;
+  padding: 12px 16px;
+  border: 1px solid #e4ecfe;
+  border-radius: 8px;
   outline: none;
-  border-bottom: 1px solid #f1f1f1;
   resize: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #f8faff;
 }
 
 .ud-contact-form-wrapper .ud-form-group input:focus,
 .ud-contact-form-wrapper .ud-form-group textarea:focus {
   border-color: var(--primary-color);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.1);
+}
+
+.ud-contact-btn {
+  width: 100%;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 /* ===== Footer CSS ===== */
