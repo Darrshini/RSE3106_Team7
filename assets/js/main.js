@@ -91,4 +91,31 @@
   document.querySelector(".back-to-top").onclick = () => {
     scrollTo(document.documentElement);
   };
+
+  // ===== lightbox for gallery images
+  const lightbox = document.getElementById("udLightbox");
+  if (lightbox) {
+    const lightboxImg = document.getElementById("udLightboxImg");
+    const lightboxCaption = document.getElementById("udLightboxCaption");
+    const lightboxClose = document.querySelector(".ud-lightbox-close");
+
+    document.querySelectorAll(".ud-lightbox-img").forEach((img) => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.dataset.caption || img.alt || "";
+        lightbox.classList.add("active");
+      });
+    });
+
+    const closeLightbox = () => lightbox.classList.remove("active");
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  }
+
+  // ===== journey carousel autoplay indicators handled by Bootstrap
 })();

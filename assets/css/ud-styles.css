@@ -4,9 +4,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
 :root {
   --font: "Inter", sans-serif;
-  --body-color: #637381;
-  --heading-color: #212b36;
-  --primary-color: #3056d3;
+  --body-color: #5b6b82;
+  --heading-color: #16233f;
+  --primary-color: #2F6FED;
   --white: #ffffff;
 }
 
@@ -656,6 +656,179 @@ p {
   right: -20px;
 }
 
+/* ===== Hero tag + accent word ===== */
+.ud-hero-tag {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+
+.ud-hero-content .ud-hero-title em {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ===== Explore cards ===== */
+.ud-explore {
+  padding: 60px 0;
+  background: var(--white);
+}
+
+.ud-explore-card {
+  display: block;
+  height: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #e4ecfe;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.ud-explore-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0px 10px 30px rgba(47, 111, 237, 0.1);
+  transform: translateY(-4px);
+}
+
+.ud-explore-num {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.ud-explore-card h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ud-explore-card h5 i {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.ud-explore-card p {
+  font-size: 14px;
+  color: var(--body-color);
+  margin: 0;
+}
+
+/* ===== Hardware gallery ===== */
+.ud-hardware-gallery {
+  padding: 80px 0;
+  background: #eef3fe;
+}
+
+.ud-hardware-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: zoom-in;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ud-hardware-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 15px 30px rgba(22, 35, 63, 0.15);
+}
+
+/* ===== Lightbox ===== */
+.ud-lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(22, 35, 63, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.ud-lightbox-overlay.active {
+  display: flex;
+}
+
+.ud-lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.ud-lightbox-overlay p {
+  color: #fff;
+  margin-top: 16px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.ud-lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 34px;
+  color: #fff;
+  font-size: 34px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ===== Prototype progression carousel ===== */
+.ud-progress-carousel {
+  padding: 70px 0;
+}
+
+.ud-progress-carousel .carousel {
+  max-width: 700px;
+  margin: 30px auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 15px 40px rgba(22, 35, 63, 0.1);
+}
+
+.ud-progress-carousel .carousel-item img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  background: #eef3fe;
+}
+
+.ud-progress-carousel .carousel-caption {
+  position: static;
+  background: var(--heading-color);
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 14px;
+  text-shadow: none;
+}
+
+.ud-progress-carousel .carousel-control-prev,
+.ud-progress-carousel .carousel-control-next {
+  width: 44px;
+  height: 44px;
+  top: 40%;
+  background: rgba(22, 35, 63, 0.5);
+  border-radius: 50%;
+}
+
+.ud-progress-carousel .carousel-control-prev {
+  left: 16px;
+}
+
+.ud-progress-carousel .carousel-control-next {
+  right: 16px;
+}
+
 /* ===== Features CSS ===== */
 .ud-features {
   padding-top: 120px;
@@ -781,7 +954,7 @@ p {
 
 /* ===== About CSS ===== */
 .ud-about {
-  background: #f3f4fe;
+  background: #eef3fe;
   padding: 120px 0;
 }
 
@@ -894,8 +1067,8 @@ p {
 }
 
 .ud-single-pricing.active {
-  background: -webkit-gradient(linear, left top, left bottom, from(#3056d3), to(#179bee));
-  background: linear-gradient(180deg, #3056d3 0%, #179bee 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#2F6FED), to(#179bee));
+  background: linear-gradient(180deg, #2F6FED 0%, #179bee 100%);
   border: none;
   padding: 55px 30px;
 }
@@ -995,7 +1168,7 @@ p {
 .ud-faq {
   padding-top: 120px;
   padding-bottom: 90px;
-  background: #f3f4fe;
+  background: #eef3fe;
   position: relative;
   z-index: 1;
 }
@@ -1016,7 +1189,7 @@ p {
 
 .ud-single-faq {
   background: var(--white);
-  border: 1px solid #f3f4fe;
+  border: 1px solid #eef3fe;
   -webkit-box-shadow: 0px 20px 95px rgba(201, 203, 204, 0.3);
           box-shadow: 0px 20px 95px rgba(201, 203, 204, 0.3);
   border-radius: 10px;
@@ -1102,8 +1275,8 @@ p {
 
 .ud-single-testimonial {
   padding: 30px;
-  -webkit-box-shadow: 0px 60px 120px -20px #ebeffd;
-          box-shadow: 0px 60px 120px -20px #ebeffd;
+  -webkit-box-shadow: 0px 60px 120px -20px #e4ecfe;
+          box-shadow: 0px 60px 120px -20px #e4ecfe;
   background: var(--white);
   margin-bottom: 50px;
 }
@@ -1323,7 +1496,7 @@ p {
   top: 0;
   left: 0;
   height: 50%;
-  background: #f3f4fe;
+  background: #eef3fe;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -1503,7 +1676,7 @@ p {
 .ud-widget .ud-widget-desc {
   font-size: 15px;
   line-height: 24px;
-  color: #f3f4fe;
+  color: #eef3fe;
   margin-bottom: 30px;
   max-width: 260px;
 }
@@ -1539,7 +1712,7 @@ p {
   margin-bottom: 12px;
   font-size: 15px;
   line-height: 30px;
-  color: #f3f4fe;
+  color: #eef3fe;
 }
 
 .ud-widget .ud-widget-links a:hover {
@@ -1596,7 +1769,7 @@ p {
 .ud-footer-bottom .ud-footer-bottom-left a {
   font-weight: normal;
   font-size: 15px;
-  color: #f3f4fe;
+  color: #eef3fe;
   margin-right: 30px;
   display: inline-block;
 }
@@ -1615,7 +1788,7 @@ p {
   text-align: right;
   font-weight: normal;
   font-size: 15px;
-  color: #f3f4fe;
+  color: #eef3fe;
 }
 
 .ud-footer-bottom .ud-footer-bottom-right a {
