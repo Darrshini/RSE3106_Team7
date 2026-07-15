@@ -502,7 +502,7 @@ p {
 
 /* ===== Hero CSS ===== */
 .ud-hero {
-  background: var(--primary-color);
+  background: linear-gradient(rgba(47, 111, 237, 0.85), rgba(22, 35, 63, 0.9)), url('../images/hardware/glasses-front.png') center/cover no-repeat;
   padding-top: 180px;
 }
 
